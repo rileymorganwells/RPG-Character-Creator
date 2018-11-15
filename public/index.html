@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Characters</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="javascripts/app.js"></script>
+  <script src="javascripts/script.js"></script>
+</head>
+<body ng-app="character" ng-controller="MainCtrl">
+  <div class="container">
+    <div class="page-header"> 
+      <h1>Characters </h1>
+      <button id="deleteCharacters" class="btn btn-primary btn-small">Delete All</button>
+    </div><hr/>
+      <form ng-submit="addCharacter()">
+        <input type="text" ng-model="name"></input>
+        <select ng-model="image">
+          <option value="001-centaur.png">Centaur</option>
+          <option value="002-kraken.png">Kraken</option>
+          <option value="003-dinosaur.png">Dino</option>
+          <option value="004-tree-1.png">Tree</option>
+          <option value="005-hand.png">Hand</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Add Character</button>
+      </form>
+      <div ng-repeat="character in characters">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="images/{{character.characterImage}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{character.characterName}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
