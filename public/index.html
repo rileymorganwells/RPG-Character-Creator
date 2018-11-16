@@ -5,8 +5,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- Angular App -->
     <script src="javascripts/app.js"></script>
     <!-- Styles -->
@@ -15,15 +13,20 @@
   <body ng-app="character" ng-controller="MainCtrl">
     <div class="container">
       <div class="page-header"> 
-        <h1>Characters </h1>
+        <h1 id="title">Characters </h1>
+        <p id="intro">Welcome to the party, where you're invited to live your unknown dream of being a fantastical creature.
+          Register to see yourself on the front page!
+        </p>
         <a href="/pickCharacter" class="btn btn-primary btn-small">Create Character</a>
       </div>
       <hr/>
       <h2>Look who's here!</h2>
-      <div class="tiling">
+      <div ng-if="characters.length > 0" class="tiling">
         <card ng-repeat="character in characters" character="character"></card>
       </div>
-    </div>
+      <div ng-if="characters.length == 0">
+        <p>It's pretty lonely here.  Create your character now!</p>
+      </div>
     </div>
   </body>
 </html>
