@@ -1,5 +1,6 @@
 angular.module('character', [])
-.controller('MainCtrl', MainCtrl);
+.controller('MainCtrl', MainCtrl)
+.directive('characterCard', characterDirective);
 
 function MainCtrl ($scope, $http) {
   $scope.characters = [];
@@ -29,4 +30,15 @@ function MainCtrl ($scope, $http) {
 
   // On page load
   $scope.getAll();
+}
+
+function characterDirective () {
+  return {
+    scope: {
+      character: "="
+    },
+    restrict: "E",
+    replace: "true",
+    templateUrl: "../characterDirective.html"
+  };
 }

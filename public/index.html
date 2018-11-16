@@ -29,14 +29,7 @@
         <button class="btn btn-primary" type="submit">Add Character</button>
       </form>
       <div ng-repeat="character in characters">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="images/{{character.characterImage}}" alt="Card image for {{character.characterName}}">
-          <div class="card-body">
-            <h5 class="card-title">{{character.characterName}}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+        <characterCard character="character" />
       </div>
     </div>
     </div>
