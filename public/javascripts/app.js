@@ -15,9 +15,7 @@ function MainCtrl ($scope, $http) {
     $scope.formContent='';
     $http.post('/characters', newcharacter)
     .success(function(data) {
-      if (window.location != '/') {
-        window.location = '/';
-      }
+      window.location = '/';
       $scope.characters.push(data);
     });
   };
