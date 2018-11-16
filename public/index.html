@@ -28,9 +28,7 @@
         </select>
         <button class="btn btn-primary" type="submit">Add Character</button>
       </form>
-      <div ng-repeat="character in characters">
-        <characterCard character="character" />
-      </div>
+      <card ng-repeat="character in characters" character="character"></card>
     </div>
     </div>
   </body>

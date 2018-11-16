@@ -1,6 +1,6 @@
 angular.module('character', [])
 .controller('MainCtrl', MainCtrl)
-.directive('characterCard', characterDirective);
+.directive('card', cardDirective);
 
 function MainCtrl ($scope, $http) {
   $scope.characters = [];
@@ -32,13 +32,13 @@ function MainCtrl ($scope, $http) {
   $scope.getAll();
 }
 
-function characterDirective () {
+function cardDirective () {
   return {
     scope: {
       character: "="
     },
     restrict: "E",
     replace: "true",
-    templateUrl: "../characterDirective.html"
+    template: "<h1>Hello world</h1>"
   };
 }
