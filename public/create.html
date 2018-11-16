@@ -1,7 +1,6 @@
 <html>
 <head>
-  <title>Create Your Character!</title>
-  <title>Characters</title>
+  <title>Customize your Character!</title>
   <!-- Angular -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
   <!-- Bootstrap -->
@@ -10,18 +9,51 @@
   <script src="javascripts/app.js"></script>
   <!-- Styles -->
   <link rel="stylesheet" href="stylesheets/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand" />
 </head>
 <body ng-app="character" ng-controller="MainCtrl">
-  <div class="container text-center">
-    <div class="page-header"> 
-      <h1>Create Your Character!</h1>
+  <div class="container">
+    <div class="page-header text-center"> 
+      <h1>Customize your Character!</h1>
     </div><hr/>
-      <img src="images/{{selectedChar}}">
-      <form ng-submit="addCharacter()">
-        <label for="name">Name: </label>
-        <input type="text" ng-model="name"></input>
-        <button class="btn btn-primary" type="submit">Add Character</button>
-      </form>
+    <div class="row">
+      <div class="col-md-5 offset-md-1">
+        <img class="createImage" src="images/{{selectedChar}}">
+      </div>
+      <div class="col-md-4" id="creationForm">
+        <h3>Character Traits</h3>
+        <form ng-submit="addCharacter()">
+          <div class="input-group mb-3"><input class="form-control" placeholder="Character Name" type="text" ng-model="name" required></input></div>
+          <div class="input-group mb-3"><input class="form-control" placeholder="Tagline" type="text" ng-model="tagline" required></input></div>
+          <div class="input-group mb-3">
+            <select class="custom-select" ng-model="type" required>
+              <option value="" disabled selected hidden>Character Type</option>
+              <option value="Warrior">Warrior</option>
+              <option value="Mage">Mage</option>
+              <option value="Archer">Archer</option>
+              <option value="Assassin">Assassin</option>
+              <option value="Healer">Healer</option>
+              <option value="Paladin">Paladin</option>
+              <option value="Bandit">Bandit</option>
+              <option value="Pirate">Pirate</option>
+              <option value="Samurai">Samurai</option>
+              <option value="Peasant">Peasant</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <select class="custom-select" ng-model="strength" required>
+              <option value="" disabled selected hidden>Strength</option>
+              <option value="Defense">Defense</option>
+              <option value="Attack">Attack</option>
+              <option value="Hitpoint">Hitpoints</option>
+              <option value="Magic">Magic</option>
+              <option value="Ranged">Ranged</option>
+            </select>
+          </div>
+          <div class="input-group mb-3"><input class="form-control" placeholder="Weakness" type="text" ng-model="weakness" required></input></div>
+          <button class="btn btn-primary" type="submit">Create Character!</button>
+        </form>
+      </div>
     </div>
   </div>
 </body>

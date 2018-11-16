@@ -1,8 +1,8 @@
 <div class="card">
-    <img class="card-img-top" ng-src="images/{{character.characterImage}}" alt="Card image for {{character.characterName}}">
+    <img class="card-img-top img-responsive" ng-src="images/{{character.characterImage}}" alt="Card image for {{character.characterName}}">
     <div class="card-body">
-        <h5 class="card-title">{{character.characterName}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h3 class="card-title">{{character.characterName}}</h3>
+        <h5>Type: {{character.characterType}}</h5>
+        <a href="/character?name={{character.characterName}}" class="btn btn-primary">Visit {{character.characterName}}'s Profile</a>
     </div>
 </div>

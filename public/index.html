@@ -9,18 +9,19 @@
     <script src="javascripts/app.js"></script>
     <!-- Styles -->
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand" />
   </head>
   <body ng-app="character" ng-controller="MainCtrl">
-    <div class="container">
+    <div class="container text-center">
       <div class="page-header"> 
-        <h1 id="title">Characters </h1>
-        <p id="intro">Welcome to the party, where you're invited to live your unknown dream of being a fantastical creature.
-          Register to see yourself on the front page!
+        <h1 id="title">Let's Make a Character!</h1>
+        <p id="intro">Welcome to the party, where you're invited to live your unknown dream of being a fantastical, powerful creature.
+          Create a character to see yourself on the front page!
         </p>
         <a href="/pickCharacter" class="btn btn-primary btn-small">Create Character</a>
+        <!-- <form ng-submit="deleteCharacters()"><button class="btn btn-primary" type="submit">Delete All Characters!</button></form> -->
       </div>
       <hr/>
-      <h2>Look who's here!</h2>
       <div ng-if="characters.length > 0" class="tiling">
         <card ng-repeat="character in characters" character="character"></card>
       </div>

@@ -35,4 +35,16 @@ router.delete('/characters', function (req, res) {
     });
 });
 
+router.get('/character', function(req, res, next) {
+  res.sendFile(path.resolve('public/character.html'));
+})
+
+router.get('/getcharacter', function(req, res, next) {
+  Character.find( { characterName: req.param('name') }, function(err, character){
+    if(err){ return next(err); }
+    console.log(character);
+    res.json(character);
+  });
+});
+
 module.exports = router;

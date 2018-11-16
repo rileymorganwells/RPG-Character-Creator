@@ -4,6 +4,8 @@ angular.module('character', [])
 
 function MainCtrl ($scope, $http) {
   $scope.characters = [];
+  $scope.characterResult = [];
+  $scope.character = {};
 
   // Get character choices from local json file
   $http.get('images.json').success(function(data) {
@@ -11,7 +13,13 @@ function MainCtrl ($scope, $http) {
   });
   
   $scope.addCharacter = function() {
-    var newcharacter = {characterName:$scope.name,characterImage:$scope.selectedChar,stats:0};
+    var newcharacter = {
+      characterName: $scope.name,
+      characterImage: $scope.selectedChar,
+      characterTagline: $scope.tagline,
+      characterType: $scope.type,
+      weakness: $scope.weakness
+    };
     $scope.formContent='';
     $http.post('/characters', newcharacter)
     .success(function(data) {
@@ -34,9 +42,17 @@ function MainCtrl ($scope, $http) {
     });
   };
 
+  $scope.getChar = function() {
+    return $http.get('/getcharacter?name=' + window.location.search.substring(6)).success(function(data){
+      angular.copy(data, $scope.characterResult);
+      $scope.character = $scope.characterResult[0];
+    });
+  };
   // On page load
   $scope.getAll();
+  $scope.getChar();
   $scope.selectedChar = window.location.search.substring(7);
+  $scope.characterName = window.location.search.substring(6);
 }
 
 function cardDirective () {
