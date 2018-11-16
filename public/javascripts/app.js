@@ -9,9 +9,9 @@ function MainCtrl ($scope, $http) {
   $http.get('images.json').success(function(data) {
    $scope.chars = data;
   });
-
+  
   $scope.addCharacter = function() {
-    var newcharacter = {characterName:$scope.name,characterImage:$scope.image,stats:0};
+    var newcharacter = {characterName:$scope.name,characterImage:$scope.selectedChar,stats:0};
     $scope.formContent='';
     $http.post('/characters', newcharacter)
     .success(function(data) {
@@ -35,6 +35,7 @@ function MainCtrl ($scope, $http) {
 
   // On page load
   $scope.getAll();
+  $scope.selectedChar = window.location.search.substring(7);
 }
 
 function cardDirective () {

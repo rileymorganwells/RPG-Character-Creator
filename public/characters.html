@@ -16,7 +16,7 @@
     <hr/>
       <div>
         <div>
-          <a ng-repeat="character in chars" href="/create/{{character.imagePath}}"><img class="charImages" src="images/{{character.imagePath}}" width="100px"></a>
+          <a ng-repeat="character in chars" href="/create?image={{character.imagePath}}"><img class="charImages" src="images/{{character.imagePath}}" width="100px"></a>
         </div>
       </div>
   </div>
