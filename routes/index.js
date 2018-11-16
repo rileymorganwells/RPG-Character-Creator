@@ -15,23 +15,16 @@ router.get('/pickCharacter', function(req, res, next) {
   res.sendFile(path.resolve('public/characters.html'));
 });
 
-router.get('/create/:charID', function(req, res, next) {
+router.get('/create', function(req, res) {
   res.sendFile(path.resolve('public/create.html'));
-});
-
-router.post('/create/:charID?', function(req, res, next) {
-  var character = new Character(req.body);
-  character.save(function(err, comment) {
-    if(err){ return next(err); }
-    res.sendFile(path.resolve('public/create.html'));
-  });
 });
 
 router.post('/characters', function(req, res, next) {
   var character = new Character(req.body);
   character.save(function(err, comment){
     if(err){ return next(err); }
-    res.json(comment);
+    //res.json(comment);
+    res.sendFile(path.resolve('public/index.html'));
   });
 });
 

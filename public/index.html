@@ -16,21 +16,9 @@
     <div class="container">
       <div class="page-header"> 
         <h1>Characters </h1>
-        <button id="deleteCharacters" ng-click="deleteCharacters()" class="btn btn-primary btn-small">Delete All</button>
+        <a href="/pickCharacter" class="btn btn-primary btn-small">Create Character</a>
       </div>
       <hr/>
-      <form ng-submit="addCharacter()">
-        <input type="text" ng-model="name"></input>
-        <select ng-model="image">
-          <option value="001-centaur.png">Centaur</option>
-          <option value="002-kraken.png">Kraken</option>
-          <option value="003-dinosaur.png">Dino</option>
-          <option value="004-tree-1.png">Tree</option>
-          <option value="005-hand.png">Hand</option>
-        </select>
-        <button class="btn btn-primary" type="submit">Add Character</button>
-      </form>
-
       <h2>Look who's here!</h2>
       <div class="tiling">
         <card ng-repeat="character in characters" character="character"></card>
