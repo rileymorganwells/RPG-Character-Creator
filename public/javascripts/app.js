@@ -16,8 +16,8 @@ angular.module('character', [])
     $scope.deleteCharacters = function() {
       $http.delete('/characters')
       .success(function(data) {
-        $scope.getAll();
         console.log("In deletion success");
+        $scope.getAll();
       });
     }
 
