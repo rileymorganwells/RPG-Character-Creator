@@ -7,13 +7,19 @@ a {
   color: #00B7FF;
 }
 
+.charImages {
+  margin: 20px;
+  padding: 5px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  
 .tiling {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   grid-auto-rows: minmax(auto, auto);
   grid-gap: 2em; /* Mostly affects vertical gap */
 }
-
+  
 .card {
   width: 18rem;
 }
