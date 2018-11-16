@@ -39,6 +39,6 @@ function cardDirective () {
     },
     restrict: "E",
     replace: "true",
-    template: "<h1>Hello world</h1>"
+    templateUrl: "../cardDirective.html"
   };
 }
