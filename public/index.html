@@ -13,27 +13,19 @@
   <body ng-app="character" ng-controller="MainCtrl">
     <div class="container">
       <div class="page-header"> 
-        <h1>Characters </h1>
-        <button id="deleteCharacters" ng-click="deleteCharacters()" class="btn btn-primary btn-small">Delete All</button>
+        <h1 id="title">Characters </h1>
+        <p id="intro">Welcome to the party, where you're invited to live your unknown dream of being a fantastical creature.
+          Register to see yourself on the front page!
+        </p>
       </div>
       <hr/>
-      <form ng-submit="addCharacter()">
-        <input type="text" ng-model="name"></input>
-        <select ng-model="image">
-          <option value="001-centaur.png">Centaur</option>
-          <option value="002-kraken.png">Kraken</option>
-          <option value="003-dinosaur.png">Dino</option>
-          <option value="004-tree-1.png">Tree</option>
-          <option value="005-hand.png">Hand</option>
-        </select>
-        <button class="btn btn-primary" type="submit">Add Character</button>
-      </form>
-
       <h2>Look who's here!</h2>
-      <div class="tiling">
+      <div ng-if="characters.length > 0" class="tiling">
         <card ng-repeat="character in characters" character="character"></card>
       </div>
-    </div>
+      <div ng-if="characters.length == 0">
+        <p>It's pretty lonely here.  Create your character now!</p>
+      </div>
     </div>
   </body>
 </html>
